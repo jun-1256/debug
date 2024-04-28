@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>debug</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function toOneDimension(previousValue,currentValue) {
+                console.log(previousValue);
+                console.log(currentValue);
+
+                //return previousValue.concat(currentValue); //修正前のプログラム
+                //return previousValue.concat(previousValue); //A1,2,3を4回繰り返される。
+                //return currentValue.concat(currentValue); //C1,2,3を2回繰り返される。
+                return currentValue.concat(previousValue); //修正後のプログラム
+            }
+
+            var sampleArrayA = [
+                [ 'A1', 'A2', 'A3' ],
+                [ 'B1', 'B2', 'B3' ],
+                [ 'C1', 'C2', 'C3' ]
+            ];
+            console.log(sampleArrayA);
+            alert(sampleArrayA);
+
+            var sampleArrayB = sampleArrayA.reduce(toOneDimension);
+
+            for (var counterVar=0; counterVar<sampleArrayB.length; counterVar++) {
+                document.write('sampleArrayB['+counterVar +']:');
+                document.write(sampleArrayB[counterVar]);
+                document.write('<br/>');
+            }
+
+        </script>
+    </body>
