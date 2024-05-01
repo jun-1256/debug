@@ -8,14 +8,19 @@
         <script type="text/javascript">
             function toOneDimension(previousValue,currentValue) {
 
-                //console.log(previousValue);
-                //console.log(currentValue);
-                //console.log(currentValue.concat(previousValue));
+                // console.log(previousValue.concat(currentValue));
+                // ['A1', 'A2', 'A3', 'B1', 'B2', 'B3'] ['A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3']
+                // console.log(previousValue); 
+                // ['A1', 'A2', 'A3'] ['B1', 'B2', 'B3', 'A1', 'A2', 'A3']
+                // console.log(currentValue); 
+                // ['B1', 'B2', 'B3'] ['C1', 'C2', 'C3']
+                // console.log(currentValue.concat(previousValue));
+                //['B1', 'B2', 'B3', 'A1', 'A2', 'A3']  ['C1', 'C2', 'C3', 'B1', 'B2', 'B3', 'A1', 'A2', 'A3']
 
-                //return previousValue.concat(currentValue); //修正前のプログラム
-                //return previousValue.concat(previousValue); //A1,2,3を4回繰り返される。
-                //return currentValue.concat(currentValue); //C1,2,3を2回繰り返される。
-                return currentValue.concat(previousValue); //修正後のプログラム
+                //return previousValue.concat(currentValue); // 修正前のプログラム
+                //return previousValue.concat(previousValue); // A1,2,3が4回繰り返される。
+                //return currentValue.concat(currentValue); // C1,2,3が2回繰り返される。
+                return currentValue.concat(previousValue); // 修正後のプログラム
             }
 
             var sampleArrayA = [
@@ -23,19 +28,19 @@
                 [ 'B1', 'B2', 'B3' ],
                 [ 'C1', 'C2', 'C3' ]
             ];
-            //console.log(sampleArrayA);
-            //alert(sampleArrayA);
+            // console.log(sampleArrayA);
+            // alert(sampleArrayA);
 
             var sampleArrayB = sampleArrayA.reduce(toOneDimension);
-            //console.log(sampleArrayB);
+            // console.log(sampleArrayB);
 
             for (var counterVar=0; counterVar<sampleArrayB.length; counterVar++) {
                 document.write('sampleArrayB['+counterVar +']:');
                 document.write(sampleArrayB[counterVar]);
                 document.write('<br/>');
 
-                //console.log(counterVar);
-                //console.log(sampleArrayB);
+                // console.log(counterVar);
+                // console.log(sampleArrayB);
             }
 
         </script>
